@@ -1,0 +1,75 @@
+.header {
+  margin: 30px auto;
+  width: 100%;
+  max-width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px;
+  align-items: center;
+  padding: 5px 25px;
+}
+
+h6 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.memories {
+  color: rgba(0, 183, 255, 1);
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.memoriesimage {
+  height: 40px;
+  width: 40px;
+  align-self: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 5px;
+}
+
+.creator {
+  font-size: 1em;
+}
+
+.button {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.2rem 0.6rem;
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    padding: 5px 10px;
+    max-width: 80%;
+  }
+  .memories {
+    font-size: 1em;
+    margin-right: 5px;
+  }
+  .memoriesimage {
+    height: 20px;
+    width: 20px;
+  }
+  .creator {
+    font-size: 0.8em;
+  }
+  .button {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
