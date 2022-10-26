@@ -23,8 +23,6 @@ const Form = ({ currentId, setcurrentId }) => {
     currentId ? state.posts.find((post) => post._id === currentId) : null
   );
 
-  console.log(post);
-
   useEffect(() => {
     if (post) {
       setpostData(post);
@@ -87,7 +85,7 @@ const Form = ({ currentId, setcurrentId }) => {
         <div className={formCSS.row}>
           <div className={formCSS.col75}>
             <input
-              maxLength={28}
+              maxLength={40}
               rows="3"
               cols="32"
               type="text"

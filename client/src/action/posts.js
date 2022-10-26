@@ -10,10 +10,11 @@ import {
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPost();
+    console.log(data);
     const action = { type: FETCH_ALL, payload: data };
     dispatch(action);
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 
@@ -51,8 +52,8 @@ export const deletePost = (id) => async (dispatch) => {
 
 export const likePost = (id) => async (dispatch) => {
   try {
+    console.log(id);
     const { data } = await api.likePost(id);
-    console.log(data);
     const action = { type: LIKE, payload: data };
     dispatch(action);
   } catch (error) {

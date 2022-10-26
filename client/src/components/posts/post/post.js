@@ -13,10 +13,12 @@ const Post = ({ post, setcurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
 
   const like = (id) => {
+    console.log(id);
     dispatch(likePost(id));
   };
 
   const Likecounts = () => {
+    console.log(user);
     if (post.likes.length > 0) {
       return post.likes.find(
         (like) => like === user?.result?.googleId || user?.result?._id
@@ -44,54 +46,17 @@ const Post = ({ post, setcurrentId }) => {
   };
 
   return (
-    // <Card className={postCSS.postcard} style={{ width: "18rem" }}>
-    //   {/* <div
-    //     className={postCSS.posttopside}
-    //     style={{ backgroundImage: `url(${post.selectedFile})` }}
-    //   > */}
-    //   <div>
-    //     <div className={postCSS.postImage}>
-    //       <Card.Img src={post.selectedFile} />
-    //     </div>
-    //     <Card.Title className={postCSS.creator}>{post.creator}</Card.Title>
-    //     <Card.Text className={postCSS.time}>
-    //       {moment(post.createdAt).fromNow()}
-    //     </Card.Text>
-    //     <button
-    //       className={`${postCSS.btn} ${postCSS.btnmore}`}
-    //       onClick={() => {
-    //         setcurrentId(post._id);
-    //       }}
-    //     >
-    //       <FiMoreHorizontal />
-    //     </button>
-    //   </div>
-    //   {/* </div> */}
-
-    //   <div className={postCSS.textcontainer}>
-    //     <Card.Text>{post.tags.map((tag) => `#${tag} `)}</Card.Text>
-    //     <Card.Title className={postCSS.title}>{post.title}</Card.Title>
-    //     <Card.Title className={postCSS.message}>{post.message}</Card.Title>
-    //   </div>
-    // <div className={postCSS.btncontainer}>
-    //   <button className={postCSS.btn} onClick={() => like(post._id)}>
-    //     <AiTwotoneLike />
-    //     <span> Like {post.likeCount}</span>
-    //   </button>
-    //   <button className={postCSS.btn} onClick={() => Delete(post._id)}>
-    //     <AiFillDelete />
-    //     <span>Delete</span>
-    //   </button>
-    // </div>
-    // </Card>
-
     <div className={postCSS.postcard} style={{ width: "18rem" }}>
       <div className={postCSS.postimage}>
         <div
-          // style={{ backgroundImage: `url('+ post.selectedFile +')` }}
+          style={{
+            backgroundImage: `url(${post.selectedFile})`,
+
+            backgroundSize: "100% 100%",
+          }}
           className={postCSS.imagediv}
         >
-          <img src={post.selectedFile} alt="" />
+          {/* <img src={post.selectedFile} alt="" /> */}
         </div>
         <h3 className={postCSS.creator}>{post.name}</h3>
         <p className={postCSS.time}>{moment(post.createdAt).fromNow()}</p>

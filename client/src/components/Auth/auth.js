@@ -29,7 +29,6 @@ const Auth = () => {
 
   const handleSubmit = () => {
     if (isSignup) {
-      console.log("heelo");
       dispatch(signup(formData, navigate));
     } else {
       dispatch(signin(formData, navigate));
@@ -41,6 +40,7 @@ const Auth = () => {
   };
 
   const onSuccess = async (res) => {
+    const credential = res.credential;
     const result = jwt_decode(res.credential);
     console.log(result);
     const { name, picture, sub } = result;
@@ -51,6 +51,7 @@ const Auth = () => {
         _type: "user",
         image: picture,
       },
+      token: credential,
     };
     try {
       dispatch({ type: "AUTH", payload: data });
@@ -59,6 +60,9 @@ const Auth = () => {
       console.log(error);
     }
   };
+
+  const client_id =
+    "296651748237-f6h7kfmnd76nh3rq06tr5u19lq98uinb.apps.googleusercontent.com";
 
   // const handlecallback = (response) => {
   //   console.log(response.credential);
@@ -164,6 +168,7 @@ const Auth = () => {
                 </button>
               )}
               buttonText="Login"
+              clientId={client_id}
               onSuccess={(res) => onSuccess(res)}
               onError={() => console.log("error")}
             ></GoogleLogin>

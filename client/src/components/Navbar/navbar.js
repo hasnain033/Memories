@@ -11,14 +11,13 @@ import decode from "jwt-decode";
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
 
-    //window.location.reload();
-    navigate("/");
+    window.location.reload();
     setUser(null);
   };
 
@@ -26,7 +25,7 @@ const Navbar = () => {
     const token = user?.token;
     if (token) {
       const decodedToken = decode(token);
-      if (decodedToken.exp * 1000 < new Date().getItem()) {
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
         logout();
       }
     }
