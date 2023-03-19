@@ -96,12 +96,6 @@ npm install
 npm start
 ```
 
-### How to deploy project
 
-- go to both `/client` & `/server`, and read the `README.md` to understand
-
-### How to upgrade project?
-
-- go to both `/client` & `/server`, and read the `README.md` to understand
 - If have any question? Open issues or Email me: eng.hasnain99@gmail.com
 
